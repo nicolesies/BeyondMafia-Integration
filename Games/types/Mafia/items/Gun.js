@@ -16,15 +16,11 @@ module.exports = class Gun extends Item {
                     labels: ["kill", "gun"],
                     item: this,
                     run: function () {
-                        var shooterMask = this.actor.role.data.shooterMask;
-                        var reveal = shooterMask ? true : this.item.options.reveal;
+                        var reveal = this.item.options.reveal;
                         if (reveal == null) {
                             reveal = Random.randArrayVal([true, false]);
                         }
-                        if (shooterMask == null) {
-                            shooterMask = this.actor.name;
-                        }
-                        
+                        var shooterMask = this.actor.name;
                         var mafiaImmune = this.item.options.mafiaImmune;
                         var cursed = this.item.options.cursed;
 
